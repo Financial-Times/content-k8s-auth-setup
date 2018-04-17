@@ -27,7 +27,7 @@ You should be all set. Do a test login to confirm everything works.
 ## Logging in
 
 1. Decide which cluster you want to login to
-    ```cat ~/.kubectl-login.json```
+    ```cat ~/.kubectl-login.json | grep aliases```
 1. Choose an alias from the cluster you want, and run the login command
     ```kubectl-login upp-k8s-dev-delivery-eu```
 1. Select Github from "Login in to dex" page
