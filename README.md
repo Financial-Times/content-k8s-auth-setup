@@ -11,13 +11,13 @@ Setup for authentication into Kubernetes Content clusters
 1. Install the [latest release of kubectl-login](https://github.com/Financial-Times/kubectl-login/releases/latest)
     - Mac OS :
     ```
-       curl -L -s -o /usr/local/bin/kubectl-login https://github.com/Financial-Times/kubectl-login/releases/download/latest/kubectl-login-darwin && chmod 777 /usr/local/bin/kubectl-login
+       curl -L -s -o /usr/local/bin/kubectl-login https://github.com/Financial-Times/kubectl-login/releases/download/3.0.0/kubectl-login-darwin && chmod 777 /usr/local/bin/kubectl-login
     ```
     - Windows: TODO
 1. Install the [latest release of cluster-login](https://github.com/Financial-Times/kubectl-login/releases/latest/)
     - Mac OS :
     ```
-       curl -L -s -o /usr/local/bin/cluster-login.sh https://github.com/Financial-Times/kubectl-login/releases/download/latest/cluster-login.sh && chmod 777 /usr/local/bin/cluster-login.sh
+       curl -L -s -o /usr/local/bin/cluster-login.sh https://github.com/Financial-Times/kubectl-login/releases/download/3.0.0/cluster-login.sh && chmod 777 /usr/local/bin/cluster-login.sh
     ```
     - Windows: TODO
 1. Setup the template *kubeconfig* file to be used:
