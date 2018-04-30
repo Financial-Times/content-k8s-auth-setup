@@ -29,7 +29,7 @@ Decide where the base directory will be for the auth setup, we will checkout a g
     ```
     git clone git@github.com:Financial-Times/content-k8s-auth-setup.git && cd content-k8s-auth-setup && echo "export KUBECONFIG=$(pwd)/kubeconfig" >> ~/.profile && source ~/.profile
     ```
-   
+
 ### Linux (bash)
 
 1. `export KUBECTL_LOGIN_VERSION=3.1.0`
