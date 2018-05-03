@@ -19,11 +19,11 @@ Decide where the base directory will be for the auth setup, we will checkout a g
 
 1. Install the [latest release of kubectl-login](https://github.com/Financial-Times/kubectl-login/releases/latest)
     ```
-    curl -L -s -o /usr/local/bin/kubectl-login https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/kubectl-login-darwin && chmod 777 /usr/local/bin/kubectl-login
+    curl -L -s -o /usr/local/bin/kubectl-login https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/kubectl-login-darwin && chmod 755 /usr/local/bin/kubectl-login
     ```
 1. Install the [latest release of cluster-login](https://github.com/Financial-Times/kubectl-login/releases/latest/)
     ```
-    curl -L -s -o /usr/local/bin/cluster-login.sh https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/cluster-login.sh && chmod 777 /usr/local/bin/cluster-login.sh
+    curl -L -s -o /usr/local/bin/cluster-login.sh https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/cluster-login.sh && chmod 755 /usr/local/bin/cluster-login.sh
     ```
 1. Setup the template *kubeconfig* file to be used:
     ```
@@ -36,11 +36,11 @@ Decide where the base directory will be for the auth setup, we will checkout a g
 
 1. Install the [latest release of kubectl-login](https://github.com/Financial-Times/kubectl-login/releases/latest)
     ```
-    sudo curl -L -s -o /usr/local/bin/kubectl-login https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/kubectl-login-linux && sudo chmod 777 /usr/local/bin/kubectl-login
+    sudo curl -L -s -o /usr/local/bin/kubectl-login https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/kubectl-login-linux && sudo chmod 755 /usr/local/bin/kubectl-login
     ```
 1. Install the [latest release of cluster-login](https://github.com/Financial-Times/kubectl-login/releases/latest/)
     ```
-    sudo curl -L -s -o /usr/local/bin/cluster-login.sh https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/cluster-login.sh && sudo chmod 777 /usr/local/bin/cluster-login.sh
+    sudo curl -L -s -o /usr/local/bin/cluster-login.sh https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/cluster-login.sh && sudo chmod 755 /usr/local/bin/cluster-login.sh
     ```
 1. Setup the template *kubeconfig* file to be used:
     ```
