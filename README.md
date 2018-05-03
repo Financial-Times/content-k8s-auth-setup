@@ -10,8 +10,11 @@ Setup for authentication into Kubernetes Content clusters
 
 ## Setup
 
-Get the secret `kubectl-login config` from LastPass and put it in a file at `~/.kubectl-login.json`
+Get the secret `kubectl-login config` from LastPass and put it in a file at `~/.kubectl-login.json`.
+
 Decide where the base directory will be for the auth setup, we will checkout a git project into the current directory.
+
+If you don't have any preference, then using your standard `$HOME` directory is fine.
 
 ### Mac OS
 
@@ -70,13 +73,29 @@ Decide where the base directory will be for the auth setup, we will checkout a g
 
 ## Logging in
 
-1. Decide which cluster you want to login to
-    ```grep "aliases"  ~/.kubectl-login.json```
-1. Choose an alias from the cluster you want, and run the login command
-    ```source cluster-login.sh upp-k8s-dev-delivery-eu```
+1. Decide which cluster you want to login to:
+
+    ```
+    grep "aliases"  ~/.kubectl-login.json
+    ```
+
+1. Choose an alias from the cluster you want, and run the login command:
+
+    ```
+    source cluster-login.sh upp-k8s-dev-delivery-eu
+    ```
+
 1. Select Github from "Login in to dex" page
+
 1. Authorise the kubernetes OAuth integration
+
 1. Click the "Copy to clipboard" button
+
 1. Navigate back to your terminal where you ran the cluster-login.sh command. It is waiting for you to paste this token into the terminal. Paste it and you should now see a message saying that you are logged in.
-1. Now try running a command, such as
-    ```kubectl get pods```
+
+1. Now try running a command, such as:
+
+    ```
+    kubectl cluster-info
+    kubectl get pods
+    ```
