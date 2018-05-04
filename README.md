@@ -18,7 +18,7 @@ If you don't have any preference, then using your standard `$HOME` directory is 
 
 ### Mac OS
 
-1. `export KUBECTL_LOGIN_VERSION=3.1.0`
+1. `export KUBECTL_LOGIN_VERSION=$(curl -sS -D - https://github.com/Financial-Times/kubectl-login/releases/latest -o /dev/null | grep Location | sed "s/.*tag\/\(.*\)/\1/g")`
 
 1. Install the [latest release of kubectl-login](https://github.com/Financial-Times/kubectl-login/releases/latest)
     ```
@@ -35,7 +35,7 @@ If you don't have any preference, then using your standard `$HOME` directory is 
 
 ### Linux (bash)
 
-1. `export KUBECTL_LOGIN_VERSION=3.1.0`
+1. `export KUBECTL_LOGIN_VERSION=$(curl -sS -D - https://github.com/Financial-Times/kubectl-login/releases/latest -o /dev/null | grep Location | sed "s/.*tag\/\(.*\)/\1/g")`
 
 1. Install the [latest release of kubectl-login](https://github.com/Financial-Times/kubectl-login/releases/latest)
     ```
@@ -54,7 +54,7 @@ If you don't have any preference, then using your standard `$HOME` directory is 
 
 1. Decide where you will keep the kubectl login executable and script. Add this directory to PATH and cd to it.
 
-1. `export KUBECTL_LOGIN_VERSION=3.1.0`
+1. `export KUBECTL_LOGIN_VERSION=$(curl -sS -D - https://github.com/Financial-Times/kubectl-login/releases/latest -o /dev/null | grep Location | sed "s/.*tag\/\(.*\)/\1/g")`
 
 1. Install the [latest release of kubectl-login](https://github.com/Financial-Times/kubectl-login/releases/latest)
     ```
