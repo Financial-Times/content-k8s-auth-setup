@@ -18,7 +18,7 @@ If you don't have any preference, then using your standard `$HOME` directory is 
 
 ### Mac OS
 
-1. `export KUBECTL_LOGIN_VERSION=3.1.0`
+1. `export KUBECTL_LOGIN_VERSION=$(curl -sS -D - https://github.com/Financial-Times/kubectl-login/releases/latest -o /dev/null | grep Location | sed -E "s/^.*tag\/([0-9.]+).*$/\1/g")`
 
 1. Install the [latest release of kubectl-login](https://github.com/Financial-Times/kubectl-login/releases/latest)
     ```
@@ -35,7 +35,7 @@ If you don't have any preference, then using your standard `$HOME` directory is 
 
 ### Linux (bash)
 
-1. `export KUBECTL_LOGIN_VERSION=3.1.0`
+1. `export KUBECTL_LOGIN_VERSION=$(curl -sS -D - https://github.com/Financial-Times/kubectl-login/releases/latest -o /dev/null | grep Location | sed -E "s/^.*tag\/([0-9.]+).*$/\1/g")`
 
 1. Install the [latest release of kubectl-login](https://github.com/Financial-Times/kubectl-login/releases/latest)
     ```
@@ -54,7 +54,7 @@ If you don't have any preference, then using your standard `$HOME` directory is 
 
 1. Decide where you will keep the kubectl login executable and script. Add this directory to PATH and cd to it.
 
-1. `export KUBECTL_LOGIN_VERSION=3.1.0`
+1. `export KUBECTL_LOGIN_VERSION=$(curl -sS -D - https://github.com/Financial-Times/kubectl-login/releases/latest -o /dev/null | grep Location | sed -E "s/^.*tag\/([0-9.]+).*$/\1/g")`
 
 1. Install the [latest release of kubectl-login](https://github.com/Financial-Times/kubectl-login/releases/latest)
     ```
@@ -99,3 +99,54 @@ If you don't have any preference, then using your standard `$HOME` directory is 
     kubectl cluster-info
     kubectl get pods
     ```
+
+### Increase productivity with bash aliases
+You can further simplify the login commands by introducing aliases in your ```~/.profile``` file.
+Here is an example of aliases for all current content clusters:
+```
+alias kl-upp-k8s-dev-delivery-eu="source cluster-login.sh upp-k8s-dev-delivery-eu"
+alias kl-upp-k8s-neo4j-eu="source cluster-login.sh upp-k8s-neo4j-eu"
+alias kl-upp-k8s-dev-publish-eu="source cluster-login.sh upp-k8s-dev-publish-eu"
+alias kl-upp-staging-publish-eu="source cluster-login.sh upp-staging-publish-eu"
+alias kl-upp-staging-publish-us="source cluster-login.sh upp-staging-publish-us"
+alias kl-upp-staging-delivery-eu="source cluster-login.sh upp-staging-delivery-eu"
+alias kl-upp-staging-neo4j-eu="source cluster-login.sh upp-staging-neo4j-eu"
+alias kl-upp-staging-delivery-us="source cluster-login.sh upp-staging-delivery-us"
+alias kl-upp-staging-neo4j-us="source cluster-login.sh upp-staging-neo4j-us"
+alias kl-upp-prod-publish-eu="source cluster-login.sh upp-prod-publish-eu"
+alias kl-upp-prod-publish-us="source cluster-login.sh upp-prod-publish-us"
+alias kl-upp-prod-delivery-eu="source cluster-login.sh upp-prod-delivery-eu"
+alias kl-upp-prod-neo4j-eu="source cluster-login.sh upp-prod-neo4j-eu"
+alias kl-upp-prod-delivery-us="source cluster-login.sh upp-prod-delivery-us"
+alias kl-upp-prod-neo4j-us="source cluster-login.sh upp-prod-neo4j-us"
+alias kl-pac-staging-eu="source cluster-login.sh pac-staging-eu"
+alias kl-pac-staging-us="source cluster-login.sh pac-staging-us"
+alias kl-pac-prod-eu="source cluster-login.sh pac-prod-eu"
+alias kl-pac-prod-us="source cluster-login.sh pac-prod-us"
+alias kl-pac-golden-corpus="source cluster-login.sh pac-golden-corpus"
+```
+
+and the short version:
+
+```
+alias kls-udde="source cluster-login.sh udde"
+alias kls-une="source cluster-login.sh une"
+alias kls-udpe="source cluster-login.sh udpe"
+alias kls-uspe="source cluster-login.sh uspe"
+alias kls-uspu="source cluster-login.sh uspu"
+alias kls-usde="source cluster-login.sh usde"
+alias kls-usne="source cluster-login.sh usne"
+alias kls-usdu="source cluster-login.sh usdu"
+alias kls-usnu="source cluster-login.sh usnu"
+alias kls-uppe="source cluster-login.sh uppe"
+alias kls-uppu="source cluster-login.sh uppu"
+alias kls-upde="source cluster-login.sh upde"
+alias kls-upne="source cluster-login.sh upne"
+alias kls-updu="source cluster-login.sh updu"
+alias kls-upnu="source cluster-login.sh upnu"
+alias kls-pse="source cluster-login.sh pse"
+alias kls-psu="source cluster-login.sh psu"
+alias kls-ppe="source cluster-login.sh ppe"
+alias kls-ppu="source cluster-login.sh ppu"
+alias kls-pgc="source cluster-login.sh pgc"
+```
