@@ -4,7 +4,7 @@ Setup for authentication into Kubernetes Content clusters
 ## Prerequisites
 
 1. [install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl)
-1. You must be a member of the [Universal Publishing](https://github.com/orgs/Financial-Times/teams/universal-publishing) team in Github
+1. You must be a member of the `GLO-LN-Content-Tech` AD group. You can check this by going to your [profile page in JIRA](https://jira.ft.com/secure/ViewProfile.jspa). 
 
 ---
 
@@ -79,15 +79,15 @@ If you don't have any preference, then using your standard `$HOME` directory is 
     grep "aliases"  ~/.kubectl-login.json
     ```
 
-1. Choose an alias from the cluster you want, and run the login command:
+1. Choose an alias from the cluster you want, and run the login command, which will open a browser window:
 
     ```
     source cluster-login.sh upp-k8s-dev-delivery-eu
     ```
 
-1. Select Github from "Login in to dex" page
+1. Select **Login with LDAP** from **Login in to dex** page
 
-1. Authorise the kubernetes OAuth integration
+1. Provide your AD credentials
 
 1. Click the "Copy to clipboard" button
 
