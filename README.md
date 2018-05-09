@@ -28,10 +28,20 @@ If you don't have any preference, then using your standard `$HOME` directory is 
     ```
     curl -L -s -o /usr/local/bin/cluster-login.sh https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/cluster-login.sh && chmod 755 /usr/local/bin/cluster-login.sh
     ```
-1. Setup the template *kubeconfig* file to be used:
-    ```
-    git clone git@github.com:Financial-Times/content-k8s-auth-setup.git && cd content-k8s-auth-setup && echo "export KUBECONFIG=$(pwd)/kubeconfig" >> ~/.profile && source ~/.profile
-    ```
+1. Setup the template *kubeconfig* file to be used.
+
+    1. If you're not worried about appending an `export KUBECONFIG` line to your `.bash_profile`, use the default command below:
+        ```
+        git clone git@github.com:Financial-Times/content-k8s-auth-setup.git && cd content-k8s-auth-setup && echo "export KUBECONFIG=$(pwd)/kubeconfig" >> ~/.bash_profile && source ~/.bash_profile
+        ```
+
+    1. If you manage your own profile files, and would prefer to add the export manually to a specific location, run:
+        ```
+        git clone git@github.com:Financial-Times/content-k8s-auth-setup.git && cd content-k8s-auth-setup && echo "export KUBECONFIG=$(pwd)/kubeconfig"
+        ```
+
+    1. Then copy the echo'd `export KUBECONFIG=/path/to/kubeconfig` line from your terminal, and add it to the profile file of your choice.
+
 
 ### Linux (bash)
 
