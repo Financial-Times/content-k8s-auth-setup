@@ -95,8 +95,6 @@ If you don't have any preference, then using your standard `$HOME` directory is 
     source cluster-login.sh upp-k8s-dev-delivery-eu
     ```
 
-1. Select **Login with LDAP** from **Login in to dex** page
-
 1. Provide your AD credentials
 
 1. Click the "Copy to clipboard" button
