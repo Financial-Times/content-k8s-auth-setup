@@ -158,3 +158,7 @@ alias kls-ppe="source cluster-login.sh ppe"
 alias kls-ppu="source cluster-login.sh ppu"
 alias kls-pgc="source cluster-login.sh pgc"
 ```
+
+## Roles and rights
+
+Roles and rights are defined in the [content-k8s-rbac](https://github.com/Financial-Times/content-k8s-rbac) repo. 
