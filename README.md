@@ -158,3 +158,13 @@ alias kls-ppe="source cluster-login.sh ppe"
 alias kls-ppu="source cluster-login.sh ppu"
 alias kls-pgc="source cluster-login.sh pgc"
 ```
+
+# Emergency access to clusters
+
+In case the login to the clusters is not working (dex or dex-redirect broken for example, AD down etc.):
+- go to LastPass, note `kubectl-login config`, `BACKUP ACCOUNT` section, and copy the token for the cluster you need
+- use the token with `kubectl` to execute commands:
+```
+kubectl delete pod wordpress-image-mapper-85dcd654cf-lwnbq --token eyJh...KCWQ
+```
+- this backup user has admin access to the whole cluster so be careful
