@@ -159,6 +159,10 @@ alias kls-ppu="source cluster-login.sh ppu"
 alias kls-pgc="source cluster-login.sh pgc"
 ```
 
+## Roles and rights
+
+Roles and rights are defined in the [content-k8s-rbac](https://github.com/Financial-Times/content-k8s-rbac) repo. 
+
 # Emergency access to clusters
 
 In case the login to the clusters is not working (dex or dex-redirect broken for example, AD down etc.):
