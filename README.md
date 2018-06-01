@@ -162,3 +162,14 @@ alias kls-pgc="source cluster-login.sh pgc"
 ## Roles and rights
 
 Roles and rights are defined in the [content-k8s-rbac](https://github.com/Financial-Times/content-k8s-rbac) repo. 
+
+# Emergency access to clusters
+
+In case the login to the clusters is not working (dex or dex-redirect broken for example, AD down etc.):
+- go to LastPass, note `kubectl-login config`, `BACKUP ACCOUNT` section, and copy the token for the cluster you need
+- use the default kubeconfig (follow the "Setup the template *kubeconfig* file to be used" step from the instructions above)
+- use the token with `kubectl` to execute commands:
+```
+kubectl delete pod wordpress-image-mapper-85dcd654cf-lwnbq --cluster upp-k8s-dev-delivery-eu --token eyJh...KCWQ
+```
+- this backup user has admin access to the whole cluster so be careful
