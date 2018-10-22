@@ -173,3 +173,18 @@ In case the login to the clusters is not working (dex or dex-redirect broken for
 kubectl delete pod wordpress-image-mapper-85dcd654cf-lwnbq --cluster upp-k8s-dev-delivery-eu --token eyJh...KCWQ
 ```
 - this backup user has admin access to the whole cluster so be careful
+
+# How to add a new cluster
+When a new cluster is provisioned, this repo needs to be updated so that everyone can login on it.
+Here are the steps needed:
+
+1. Add the backup token to the LP note `kubectl-login config`. You can find the token in the output of the provisioner.
+1. Add a new folder in the `/ca` folder for your cluster
+1. Add the public certificate for your cluster CA `ca.pem` to that folder. It can be found in the TLS assets created by the provisioner.
+1. Update the kubeconfig file:
+    1. Add a new cluster definition in the `clusters` section for the new cluster
+    1. Add a new context definition in the `contexts` section for the new cluster.
+1. Commit all the changes & create a PR.
+1. After PR is merged to master notify everybody to update for accessing the new cluster.
+
+***At this stage everybody can login with the backup token. In order to login with FT AD credentials, you'll need to deploy [content-auth](https://github.com/Financial-Times/content-auth) in the cluster.***
