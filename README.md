@@ -188,3 +188,33 @@ Here are the steps needed:
 1. After PR is merged to master notify everybody to update for accessing the new cluster.
 
 ***At this stage everybody can login with the backup token. In order to login with FT AD credentials, you'll need to deploy [content-auth](https://github.com/Financial-Times/content-auth) in the cluster.***
+
+# Minikube
+
+To be able to switch between FT clusters and minikube do the following:
+
+Edit your kubeconfig to include minikube cluster info and context and user. Add the following sections to kubeconfig to the relative sections - clusters, contexts and users respectively:
+
+```
+clusters:
+- cluster:
+    certificate-authority: ~/.minikube/ca.crt
+    server: https://localhost:8443
+  name: minikube
+...
+contexts:
+- context:
+    cluster: minikube
+    user: minikube
+  name: minikube
+...
+users:
+- name: minikube
+  user:
+    client-certificate: ~/.minikube/client.crt
+    client-key: ~/.minikube/client.key
+```
+*Note:* You mihght need to change the server ip address if its different than localhost to the one your Kubernetes is using.
+
+Further information: https://confluence.ft.com/display/CONTENT/Getting+FT+k8s+logins+and+Docker%2C+Kubernetes+minikube+running+locally
+
