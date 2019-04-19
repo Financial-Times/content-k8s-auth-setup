@@ -25,8 +25,14 @@ If you don't have any preference, then using your standard `$HOME` directory is 
     curl -L -s -o /usr/local/bin/kubectl-login https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/kubectl-login-darwin && chmod 755 /usr/local/bin/kubectl-login
     ```
 1. Install the [latest release of cluster-login](https://github.com/Financial-Times/kubectl-login/releases/latest/)
+
+    1. Latest cluster-login for shell `/bin/bash`
     ```
     curl -L -s -o /usr/local/bin/cluster-login.sh https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/cluster-login.sh && chmod 755 /usr/local/bin/cluster-login.sh
+    ```
+    1. Latest cluster-login for shell `/bin/zsh`
+    ```
+    curl -L -s -o /usr/local/bin/cluster-login.zsh https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/cluster-login.zsh && chmod 755 /usr/local/bin/cluster-login.zsh
     ```
 1. Setup the template *kubeconfig* file to be used.
 
@@ -42,6 +48,28 @@ If you don't have any preference, then using your standard `$HOME` directory is 
 
     1. Then copy the echo'd `export KUBECONFIG=/path/to/kubeconfig` line from your terminal, and add it to the profile file of your choice.
 
+1. (Optional) If you want to add Kubernetes prompt to your shell
+
+    1. For ```/bin/bash```
+    ```
+    curl -L -s -o /usr/local/bin/kube-ps1.sh https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh && chmod 755 /usr/local/bin/kube-ps1.sh
+
+    echo 'source /usr/local/bin/kube-ps1.sh' >> /usr/local/bin/cluster-login.sh
+    echo "PS1='[\u@\h \W $(kube_ps1)]\$ '" >> /usr/local/bin/cluster-login.sh
+    ```
+
+    1. For ```/bin/zsh```
+    ```
+    curl -L -s -o /usr/local/bin/kube-ps1.sh https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh && chmod 755 /usr/local/bin/kube-ps1.sh
+
+    cat > /usr/local/bin/cluster-login.sh << 'EOF'
+    /usr/local/bin/kube-ps1.sh
+    PROMPT='$(kube_ps1)'$PROMPT
+    EOF
+    ```
+    
+    1. If you want to stop the Kubernetes prompt type `kubeoff`. To start Kubernetes prompt again type `kubeon` 
+
 
 ### Linux (bash)
 
@@ -52,13 +80,41 @@ If you don't have any preference, then using your standard `$HOME` directory is 
     sudo curl -L -s -o /usr/local/bin/kubectl-login https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/kubectl-login-linux && sudo chmod 755 /usr/local/bin/kubectl-login
     ```
 1. Install the [latest release of cluster-login](https://github.com/Financial-Times/kubectl-login/releases/latest/)
+
+    1. Latest cluster-login for shell `/bin/bash`
     ```
-    sudo curl -L -s -o /usr/local/bin/cluster-login.sh https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/cluster-login.sh && sudo chmod 755 /usr/local/bin/cluster-login.sh
+    curl -L -s -o /usr/local/bin/cluster-login.sh https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/cluster-login.sh && chmod 755 /usr/local/bin/cluster-login.sh
+    ```
+    1. Latest cluster-login for shell `/bin/zsh`
+    ```
+    curl -L -s -o /usr/local/bin/cluster-login.zsh https://github.com/Financial-Times/kubectl-login/releases/download/$KUBECTL_LOGIN_VERSION/cluster-login.zsh && chmod 755 /usr/local/bin/cluster-login.zsh
     ```
 1. Setup the template *kubeconfig* file to be used:
     ```
     git clone git@github.com:Financial-Times/content-k8s-auth-setup.git && cd content-k8s-auth-setup && echo "export KUBECONFIG=$(pwd)/kubeconfig" >> ~/.bashrc && source ~/.bashrc
     ```
+
+1. (Optional) If you want to add Kubernetes prompt to your shell:
+
+    1. For ```/bin/bash```
+    ```
+    curl -L -s -o /usr/local/bin/kube-ps1.sh https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh && chmod 755 /usr/local/bin/kube-ps1.sh
+
+    echo 'source /usr/local/bin/kube-ps1.sh' >> /usr/local/bin/cluster-login.sh
+    echo "PS1='[\u@\h \W $(kube_ps1)]\$ '" >> /usr/local/bin/cluster-login.sh
+    ```
+
+    1. For ```/bin/zsh```
+    ```
+    curl -L -s -o /usr/local/bin/kube-ps1.sh https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh && chmod 755 /usr/local/bin/kube-ps1.sh
+
+    cat > /usr/local/bin/cluster-login.sh << 'EOF'
+    /usr/local/bin/kube-ps1.sh
+    PROMPT='$(kube_ps1)'$PROMPT
+    EOF
+   ```
+   
+    1. If you want to stop the Kubernetes prompt type `kubeoff`. To start Kubernetes prompt again type `kubeon` 
 
 ### Windows (git-bash)
 
