@@ -67,7 +67,7 @@ If you don't have any preference, then using your standard `$HOME` directory is 
     PROMPT='$(kube_ps1)'$PROMPT
     EOF
     ```
-    
+
     1. If you want to stop the Kubernetes prompt type `kubeoff`. To start Kubernetes prompt again type `kubeon` 
 
 
@@ -100,19 +100,21 @@ If you don't have any preference, then using your standard `$HOME` directory is 
     ```
     curl -L -s -o /usr/local/bin/kube-ps1.sh https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh && chmod 755 /usr/local/bin/kube-ps1.sh
 
-    echo 'source /usr/local/bin/kube-ps1.sh' >> /usr/local/bin/cluster-login.sh
-    echo "PS1='[\u@\h \W $(kube_ps1)]\$ '" >> /usr/local/bin/cluster-login.sh
+    cat >> /usr/local/bin/cluster-login.sh << 'EOF'
+    source /usr/local/bin/kube-ps1.sh
+    PS1='[\u@\h \W $(kube_ps1)]\$ '
+    EOF
     ```
 
     1. For ```/bin/zsh```
     ```
     curl -L -s -o /usr/local/bin/kube-ps1.sh https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh && chmod 755 /usr/local/bin/kube-ps1.sh
 
-    cat > /usr/local/bin/cluster-login.sh << 'EOF'
-    /usr/local/bin/kube-ps1.sh
+    cat >> /usr/local/bin/cluster-login.sh << 'EOF'
+    source /usr/local/bin/kube-ps1.sh
     PROMPT='$(kube_ps1)'$PROMPT
     EOF
-   ```
+    ```
    
     1. If you want to stop the Kubernetes prompt type `kubeoff`. To start Kubernetes prompt again type `kubeon` 
 
